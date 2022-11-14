@@ -1,0 +1,26 @@
+﻿  compilation object save succeeded; see C:\Users\Paulo\Desktop\Meus Arquivos\Arquivos de Paulo Victor\Trabalhos\UFERSA\7º Período\Programação de Jogos\Lab29\Engine\Engine\Shaders\Pixel.cso
+  compilation object save succeeded; see C:\Users\Paulo\Desktop\Meus Arquivos\Arquivos de Paulo Victor\Trabalhos\UFERSA\7º Período\Programação de Jogos\Lab29\Engine\Engine\Shaders\Vertex.cso
+  Animation.cpp
+  Audio.cpp
+  Background.cpp
+  Controller.cpp
+  Engine.cpp
+  Font.cpp
+  Game.cpp
+  Geometry.cpp
+  Graphics.cpp
+  Image.cpp
+  Object.cpp
+  Particles.cpp
+  Random.cpp
+  Renderer.cpp
+  Scene.cpp
+  Sound.cpp
+  Sprite.cpp
+  Texture.cpp
+  TileSet.cpp
+  Timer.cpp
+  Vector.cpp
+  Window.cpp
+     Criando biblioteca C:\Users\Paulo\Desktop\Meus Arquivos\Arquivos de Paulo Victor\Trabalhos\UFERSA\7º Período\Programação de Jogos\Lab29\Engine\x64\Debug\Engine.lib e objeto C:\Users\Paulo\Desktop\Meus Arquivos\Arquivos de Paulo Victor\Trabalhos\UFERSA\7º Período\Programação de Jogos\Lab29\Engine\x64\Debug\Engine.exp
+  Engine.vcxproj -> C:\Users\Paulo\Desktop\Meus Arquivos\Arquivos de Paulo Victor\Trabalhos\UFERSA\7º Período\Programação de Jogos\Lab29\Engine\x64\Debug\Engine.dll
