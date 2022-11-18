@@ -29,7 +29,8 @@ enum PLAYERCOLOR { PBLUE, PRED, PYELLOW };
 class Player : public Object
 {
 private:
-    Sprite * sprite;                    // sprite do objeto
+    Sprite * spriteR;                    // sprite do player vermelho
+    Sprite * spriteB;                     // sprite do player azul
     Particles * tail;                   // calda do jogador
     uint tailCount;                     // quantidade de partículas da calda
     
@@ -47,11 +48,16 @@ public:
     static Image * missile;             // imagem do míssil
     Vector speed;                       // velocidade e direção de movimento
 
+    uint currColor;                     // cor atual do jogador
+
     Player();                           // construtor
     ~Player();                          // destrutor
     
     bool AxisTimed(int axisX, int axisY, float time);
     bool KeysTimed(bool pressed, float time);
+
+    void OnCollision(Object* obj);     // resolução da colisão
+    void WallCollision(Object* obj);    // revolve colisão com wallE
 
     void Move(Vector && v);             // movimenta jogador
     void Update();                      // atualização

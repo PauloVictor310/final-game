@@ -13,6 +13,8 @@
 #include "Missile.h"
 #include "BasicAI.h"
 #include "Hud.h"
+#include "Orb.h"
+#include "Wall.h"
 
 Image * Player::missile = nullptr;
 
@@ -25,11 +27,12 @@ Player::Player()
     gamepadOn = gamepad->Initialize();
 
     // configuração do objeto
-    sprite = new Sprite("Resources/Player.png");
+    spriteR = new Sprite("Resources/New/playerR.png");
+    spriteB = new Sprite("Resources/New/playerB.png");
     missile = new Image("Resources/Missile.png");
     speed.RotateTo(90.0f);
     speed.ScaleTo(0.0f);
-    BBox(new Circle(18.0f));
+    BBox(new Circle(30.0f));
     MoveTo(447, 2033);
     type = PLAYER;
 
@@ -52,6 +55,8 @@ Player::Player()
     tail = new Particles(emitter);
     tailCount = 0;
 
+    currColor = PBLUE;
+
     // diparo habilitado
     firingAngle = 0.0f;
     keysPressed = false;
@@ -65,13 +70,55 @@ Player::Player()
 
 Player::~Player()
 {
-    delete sprite;
+    delete spriteR;
+    delete spriteB;
     delete missile;
     delete tail;
     delete gamepad;
 }
 
 // -------------------------------------------------------------------------------
+
+void Player::OnCollision(Object* obj)
+{
+    if (obj->Type() == ORB) {
+        Orb* o = (Orb*)obj;
+
+        if (o->color == PBLUE) {
+            currColor = PBLUE;
+        }
+        else if (o->color == PRED) {
+            currColor = PRED;
+        }
+        else if (o->color == PYELLOW) {
+            //nextLevel = LEVELWIN;
+        }
+    }
+
+    if (obj->Type() == WALL)
+        WallCollision(obj);
+
+   /*if (obj->Type() == BULLET)
+        BulletCollision();*/
+}
+
+void Player::WallCollision(Object* obj) {
+    Wall* wall = (Wall*)obj;
+    Player* player = (Player*)obj;
+
+    if (wall->color == PBLUE && currColor == PRED) {
+
+    }
+    else if (wall->color == PRED && currColor == PBLUE) {
+
+    }
+    else if (wall->color == PYELLOW && currColor == PRED) {
+
+    }
+    else if (wall->color == PYELLOW && currColor == PBLUE) {
+
+    }
+}
 
 bool Player::KeysTimed(bool pressed, float time)
 {
@@ -290,7 +337,13 @@ void Player::Update()
 
 void Player::Draw()
 {
-    sprite->Draw(x, y, Layer::MIDDLE, 1.0f, -speed.Angle() + 90.0f);
+    if (currColor == PBLUE) {
+        spriteB->Draw(x, y, Layer::MIDDLE, 1.0f, -speed.Angle() + 90.0f);
+    }
+    else if (currColor == PRED) {
+        spriteR->Draw(x, y, Layer::MIDDLE, 1.0f, -speed.Angle() + 90.0f);
+    }
+
     tail->Draw(Layer::LOWER, 1.0f);
 }
 
