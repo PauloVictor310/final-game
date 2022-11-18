@@ -20,8 +20,11 @@
 #include "Particles.h"                  // sistema de partículas
 #include "Controller.h"                 // entrada pelo controle
 #include "Timer.h"                      // controle do tempo
+#include "Types.h"
 
 // ---------------------------------------------------------------------------------
+
+enum PLAYERCOLOR { WBLUE, WRED, WYELLOW };
 
 class Player : public Object
 {

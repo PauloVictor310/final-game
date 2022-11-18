@@ -30,7 +30,7 @@ Player::Player()
     speed.RotateTo(90.0f);
     speed.ScaleTo(0.0f);
     BBox(new Circle(18.0f));
-    MoveTo(game->CenterX(), game->CenterY());
+    MoveTo(447, 2033);
     type = PLAYER;
 
     // configuração do emissor de partículas

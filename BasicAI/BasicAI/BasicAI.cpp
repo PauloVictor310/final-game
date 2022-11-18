@@ -14,6 +14,7 @@
 #include "BasicAI.h"
 #include "Engine.h"    
 #include "Delay.h"
+#include "Wall.h"
 
 // ------------------------------------------------------------------------------
 
@@ -59,7 +60,7 @@ void BasicAI::Init()
     orange  = new Image("Resources/Orange.png");
 
     // carrega/incializa objetos
-    backg   = new Background("Resources/Space.jpg");
+    backg   = new Background("Resources/New/state1.png");
     player  = new Player();
     scene   = new Scene();  
     hud     = new Hud();
@@ -67,6 +68,203 @@ void BasicAI::Init()
     // adiciona objetos na cena
     scene->Add(player, MOVING);
     scene->Add(new Delay(), STATIC);
+
+    // ----------------------
+    // Posição das paredes
+    // ----------------------
+    Wall* wall;
+    wall = new Wall(453, 12, -453, -12);
+    wall->color = WRED;
+    wall->MoveTo(451, 1567);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(220, 12, -220, -12);
+    wall->color = WRED;
+    wall->MoveTo(220, 1871);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(212, 12, -212, -12);
+    wall->color = WBLUE;
+    wall->MoveTo(652, 1871);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 287, -12, -287);
+    wall->color = WRED;
+    wall->MoveTo(891, 1873);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(642, 12, -642, -12);
+    wall->color = WYELLOW;
+    wall->MoveTo(642, 1276);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(401, 12, -401, -12);
+    wall->color = WYELLOW;
+    wall->MoveTo(1730, 1276);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(528, 12, -528, -12);
+    wall->color = WYELLOW;
+    wall->MoveTo(754, 1026);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(516, 12, -516, -12);
+    wall->color = WYELLOW;
+    wall->MoveTo(516, 814);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(528, 12, -528, -12);
+    wall->color = WYELLOW;
+    wall->MoveTo(754, 625);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(516, 12, -516, -12);
+    wall->color = WYELLOW;
+    wall->MoveTo(516, 439);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 513, -12, -513);
+    wall->color = WYELLOW;
+    wall->MoveTo(1309, 513);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 125, -12, -125);
+    wall->color = WRED;
+    wall->MoveTo(1309, 1152);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 441, -12, -441);
+    wall->color = WBLUE;
+    wall->MoveTo(1306, 1719);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(418, 12, -418, -12);
+    wall->color = WRED;
+    wall->MoveTo(1745, 1872);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(418, 12, -418, -12);
+    wall->color = WRED;
+    wall->MoveTo(1745, 1568);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 313, -12, -313);
+    wall->color = WRED;
+    wall->MoveTo(2149, 950);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(307, 12, -307, -12);
+    wall->color = WYELLOW;
+    wall->MoveTo(1823, 624);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(94, 12, -94, -12);
+    wall->color = WBLUE;
+    wall->MoveTo(1420, 624);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(593, 12, -593, -12);
+    wall->color = WYELLOW;
+    wall->MoveTo(2723, 624);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 443, -12, -443);
+    wall->color = WYELLOW;
+    wall->MoveTo(2487, 1718);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(199, 11, -199, -11);
+    wall->color = WRED;
+    wall->MoveTo(2701, 1829);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(199, 11, -199, -11);
+    wall->color = WRED;
+    wall->MoveTo(3120, 1563);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(145, 12, -145, -12);
+    wall->color = WBLUE;
+    wall->MoveTo(3174, 1255);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(276, 12, -276, -12);
+    wall->color = WRED;
+    wall->MoveTo(2753, 1255);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(276, 12, -276, -12);
+    wall->color = WRED;
+    wall->MoveTo(2753, 872);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 177, -12, -177);
+    wall->color = WRED;
+    wall->MoveTo(2488, 1063);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 177, -12, -177);
+    wall->color = WRED;
+    wall->MoveTo(3013, 1063);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(11, 103, -11, -103);
+    wall->color = WRED;
+    wall->MoveTo(3332, 2057);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(12, 860, -12, -860);
+    wall->color = WYELLOW;
+    wall->MoveTo(3332, 1095);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(11, 118, -11, -118);
+    wall->color = WBLUE;
+    wall->MoveTo(3332, 118);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(246, 12, -246, -12);
+    wall->color = WRED;
+    wall->MoveTo(3594, 1791);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(246, 12, -246, -12);
+    wall->color = WRED;
+    wall->MoveTo(3594, 1114);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(246, 12, -246, -12);
+    wall->color = WRED;
+    wall->MoveTo(3594, 438);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(246, 12, -246, -12);
+    wall->color = WBLUE;
+    wall->MoveTo(3594, 792);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(246, 12, -246, -12);
+    wall->color = WBLUE;
+    wall->MoveTo(3594, 1444);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(3136, 31, 3151, 44, 2959, 215, 2774, 64, 2583, 219, 
+                    2404, 57, 2228, 221, 2051, 59, 1877, 222, 1700, 58, 
+                    1524, 223, 1509, 207, 1698, 27, 1878, 188, 2051, 25, 
+                    2232, 189, 2403, 26, 2584, 188, 2774, 32, 2957, 186);
+    wall->color = WRED;
+    wall->MoveTo(0, 0);
+    scene->Add(wall, STATIC);
+
+    wall = new Wall(3136, 390, 3151, 403, 2959, 574, 2774, 423, 2583, 578,
+                    2404, 416, 2228, 580, 2051, 418, 1877, 581, 1700, 417,
+                    1524, 582, 1509, 566, 1698, 386, 1878, 547, 2051, 384,
+                    2232, 548, 2403, 385, 2584, 547, 2774, 391, 2957, 545);
+    wall->color = WRED;
+    wall->MoveTo(0, 0);
+    scene->Add(wall, STATIC);
+
+    // ------------------------------------------------------------------------------
 
     // ----------------------
     // inicializa a viewport
