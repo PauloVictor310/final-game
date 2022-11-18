@@ -175,6 +175,7 @@
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Orange.cpp" />
+    <ClCompile Include="Orb.cpp" />
     <ClCompile Include="Particles.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Random.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="Missile.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Orange.h" />
+    <ClInclude Include="Orb.h" />
     <ClInclude Include="Particles.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Random.h" />

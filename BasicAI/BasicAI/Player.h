@@ -24,7 +24,7 @@
 
 // ---------------------------------------------------------------------------------
 
-enum PLAYERCOLOR { WBLUE, WRED, WYELLOW };
+enum PLAYERCOLOR { PBLUE, PRED, PYELLOW };
 
 class Player : public Object
 {
