@@ -33,6 +33,7 @@ Player::Player()
     speed.RotateTo(90.0f);
     speed.ScaleTo(0.0f);
     BBox(new Circle(30.0f));
+    //BBox(new Rect(-20, -20, 20, 20));
     MoveTo(447, 2033);
     type = PLAYER;
 
@@ -107,16 +108,18 @@ void Player::WallCollision(Object* obj) {
     Player* player = (Player*)obj;
 
     if (wall->color == PBLUE && currColor == PRED) {
-
+        speed.Scale(-5.0f);
     }
-    else if (wall->color == PRED && currColor == PBLUE) {
-
+    if (wall->color == PRED && currColor == PBLUE) {
+        speed.Scale(-5.0f);
     }
-    else if (wall->color == PYELLOW && currColor == PRED) {
 
+
+    if (wall->color == PYELLOW && currColor == PRED) {
+        speed.Scale(-5.0f);
     }
-    else if (wall->color == PYELLOW && currColor == PBLUE) {
-
+    if (wall->color == PYELLOW && currColor == PBLUE) {
+        speed.Scale(-5.0f);
     }
 }
 
