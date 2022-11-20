@@ -32,14 +32,15 @@ Player::Player()
     missile = new Image("Resources/Missile.png");
     speed.RotateTo(90.0f);
     speed.ScaleTo(0.0f);
-    BBox(new Circle(30.0f));
-    //BBox(new Rect(-20, -20, 20, 20));
+    //BBox(new Circle(30.0f));
+    BBox(new Rect(-35, -35, 35, 35));   
+
     MoveTo(447, 2033);
     type = PLAYER;
 
     // configuração do emissor de partículas
     Generator emitter;
-    emitter.imgFile = "Resources/Spark.png";    // arquivo de imagem
+    emitter.imgFile = "Resources/New/particle.png";    // arquivo de imagem
     emitter.angle = 270.0f;                     // ângulo base do emissor
     emitter.spread = 25;                        // espalhamento em graus
     emitter.lifetime = 0.3f;                    // tempo de vida em segundos
