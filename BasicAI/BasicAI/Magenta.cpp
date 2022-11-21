@@ -19,14 +19,17 @@
 
 Magenta::Magenta(float pX, float pY, Player * p)
 {
+    // enemy_3
+
     player = p;
     sprite = new Sprite(BasicAI::magenta);
-    BBox(new Circle(18.0f));
+    BBox(new Circle(30.0f));
     
     speed.RotateTo(0);
     speed.ScaleTo(2.0f);
     
     MoveTo(pX, pY);
+    ScaleTo(0.6f);
     type = MAGENTA;
 
     // incrementa contador

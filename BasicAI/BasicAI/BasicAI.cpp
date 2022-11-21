@@ -16,9 +16,12 @@
 #include "Delay.h"
 #include "Wall.h"
 #include "Orb.h"
+#include "Home.h"
+#include "GameOver.h"
+#include "Etther.h"
+#include "Win.h"
 
 // ------------------------------------------------------------------------------
-
 Player * BasicAI::player  = nullptr;
 Audio  * BasicAI::audio   = nullptr;
 Scene  * BasicAI::scene   = nullptr;
@@ -55,10 +58,10 @@ void BasicAI::Init()
     audio->Volume(GREEN, 0.75f);
 
     // carrega imagens das geometrias
-    blue    = new Image("Resources/Blue.png");
-    green   = new Image("Resources/Green.png");
-    magenta = new Image("Resources/Magenta.png");
-    orange  = new Image("Resources/Orange.png");
+    blue    = new Image("Resources/New/enemy_1.png");
+    green   = new Image("Resources/New/enemy_2.png");
+    magenta = new Image("Resources/New/enemy_3.png");
+    orange  = new Image("Resources/New/enemy_4.png");
 
     // carrega/incializa objetos
     backg   = new Background("Resources/New/state1.png");
@@ -376,6 +379,14 @@ void BasicAI::Update()
     // ativa ou desativa o heads up display
     if (window->KeyPress('H'))
         viewHUD = !viewHUD;
+
+    // passa para tela de game over
+    if (window->KeyPress('N'))
+        Etther::NextLevel<GameOver>();
+
+    // passa para tela de vitoria
+    if (window->KeyPress('M'))
+        Etther::NextLevel<Win>();
 } 
 
 // ------------------------------------------------------------------------------
@@ -411,43 +422,4 @@ void BasicAI::Finalize()
     delete magenta;
     delete orange;
 }
-
-
-// ------------------------------------------------------------------------------
-//                                  WinMain                                      
-// ------------------------------------------------------------------------------
-
-int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
-                     _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
-{
-    // cria motor do jogo
-    Engine * engine = new Engine();
-
-    // configura janela
-    //engine->window->Mode(WINDOWED);
-    //engine->window->Size(1152, 648);
-    engine->window->Mode(BORDERLESS);
-    engine->window->Color(0, 0, 0);
-    engine->window->Title("BasicAI");
-    engine->window->Icon(IDI_ICON);
-    engine->window->Cursor(IDC_CURSOR);
-    engine->window->HideCursor(true);
-    //engine->graphics->VSync(true);
-
-    // cria o jogo
-    Game * game = new BasicAI();
-
-    // configura o jogo
-    game->Size(3840, 2160);
-    
-    // inicia execução
-    int status = engine->Start(game);
-
-    // destrói motor 
-    delete engine;
-
-    // encerra
-    return status;
-}
-
 // ----------------------------------------------------------------------------

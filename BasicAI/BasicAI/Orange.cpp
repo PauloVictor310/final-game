@@ -18,14 +18,19 @@
 
 Orange::Orange(float pX, float pY, float ang)
 {
+    // enemy_4
+
     sprite = new Sprite(BasicAI::orange);
 
     // ajusta o vetor velocidade
     speed.RotateTo(ang);
     speed.ScaleTo(400);
     RotateTo(-speed.Angle());
-    BBox(new Circle(20.0f));
+    Rotate(90.0f);
+    //BBox(new Circle(30.0f));
+    BBox(new Rect(-45, -55, 45, 55));
     MoveTo(pX, pY);
+    ScaleTo(0.6f);
     type = ORANGE;
 
     // configuração do emissor de partículas
