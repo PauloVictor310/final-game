@@ -5,7 +5,7 @@
 // Atualização: 11 Nov 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Objeto faz movimento retilíneo
+// Descrição:   Objeto faz movimento retilú‹eo
 //
 **********************************************************************************/
 
@@ -26,29 +26,31 @@ Orange::Orange(float pX, float pY, float ang)
     speed.RotateTo(ang);
     speed.ScaleTo(400);
     RotateTo(-speed.Angle());
-    Rotate(90.0f);
-    //BBox(new Circle(30.0f));
+
     BBox(new Rect(-45, -55, 45, 55));
+    Rotate(90.0f);
+    Scale(0.6f);
+
     MoveTo(pX, pY);
     ScaleTo(0.6f);
     type = ORANGE;
 
-    // configuração do emissor de partículas
+    // configuração do emissor de partú€ulas
     Generator emitter;
     emitter.imgFile = "Resources/Spark.png";    // arquivo de imagem
     emitter.angle = speed.Angle() + 180;        // ângulo base do emissor
     emitter.spread = 5;                         // espalhamento em graus
     emitter.lifetime = 0.4f;                    // tempo de vida em segundos
-    emitter.frequency = 0.010f;                 // tempo entre geração de novas partículas
+    emitter.frequency = 0.010f;                 // tempo entre geração de novas partú€ulas
     emitter.percentToDim = 0.8f;                // desaparece após 60% da vida
-    emitter.minSpeed = 100.0f;                  // velocidade mínima das partículas
-    emitter.maxSpeed = 200.0f;                  // velocidade máxima das partículas
-    emitter.color.r = 1.0f;                     // componente Red da partícula 
-    emitter.color.g = 0.5;                      // componente Green da partícula 
-    emitter.color.b = 0.0f;                     // componente Blue da partícula 
-    emitter.color.a = 1.0f;                     // transparência da partícula
+    emitter.minSpeed = 100.0f;                  // velocidade mú‹ima das partú€ulas
+    emitter.maxSpeed = 200.0f;                  // velocidade máxima das partú€ulas
+    emitter.color.r = 1.0f;                     // componente Red da partú€ula 
+    emitter.color.g = 0.5;                      // componente Green da partú€ula 
+    emitter.color.b = 0.0f;                     // componente Blue da partú€ula 
+    emitter.color.a = 1.0f;                     // transparência da partú€ula
 
-    // cria sistema de partículas
+    // cria sistema de partú€ulas
     tail = new Particles(emitter);
     tailCount = 0;
 

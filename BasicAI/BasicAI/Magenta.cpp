@@ -24,7 +24,9 @@ Magenta::Magenta(float pX, float pY, Player * p)
     player = p;
     sprite = new Sprite(BasicAI::magenta);
     BBox(new Circle(30.0f));
-    
+
+    Scale(0.6f);
+
     speed.RotateTo(0);
     speed.ScaleTo(2.0f);
     

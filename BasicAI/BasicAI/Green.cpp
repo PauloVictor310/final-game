@@ -19,12 +19,12 @@
 Green::Green(float pX, float pY, Player * p)
 {
     // enemy_2
-
     player = p;
     sprite = new Sprite(BasicAI::green);
     BBox(new Circle(30.0f));
     speed.RotateTo(0.0f);
     speed.ScaleTo(0.0f);
+    Scale(0.6f);
     MoveTo(pX, pY);
     ScaleTo(0.6f);
     type = GREEN;
