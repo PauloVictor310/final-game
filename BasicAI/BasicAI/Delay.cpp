@@ -22,6 +22,7 @@
 Delay::Delay()
 {
     logo = new Sprite("Resources/New/levelhome.png");
+    
     timer.Start();
 
     notPlayed = true;
@@ -44,41 +45,44 @@ void Delay::Update()
 {
     if (window->KeyPress(VK_RETURN)) {
         notPlayed = false;
+        BasicAI::viewHUD = true;
+        BasicAI::audio->Stop(START);
     }
 
     if (notPlayed)
     {
-        // toca áudio de introdução
-        BasicAI::audio->Play(START);
-       
+        
     }
-    if (!fase1 && timer.Elapsed(6.0f) && !notPlayed)
+    if (!fase1 && timer.Elapsed(2.0f) && !notPlayed)
     {
         // toca música do jogo
         BasicAI::audio->Play(THEME, true);
         BasicAI::scene->Add(new WaveO(), STATIC);
-        BasicAI::viewHUD = true;
+        
         fase1 = true;
     }
 
-    if (!fase2 && timer.Elapsed(8.0f) && !notPlayed)
+    if (!fase2 && timer.Elapsed(4.0f) && !notPlayed)
     {
         BasicAI::scene->Add(new WaveM(), STATIC);
         fase2 = true;
     }
 
-    if (!fase3 && timer.Elapsed(10.0f) && !notPlayed)
+    if (!fase3 && timer.Elapsed(6.0f) && !notPlayed)
     {
         BasicAI::scene->Add(new WaveB(), STATIC);
         fase3 = true;
     }
 
-    if (!fase4 && timer.Elapsed(15.0f) && !notPlayed)
+    if (!fase4 && timer.Elapsed(18.0f) && !notPlayed)
     {
         BasicAI::scene->Add(new WaveG(), STATIC);
         BasicAI::scene->Delete();
         fase4 = true;
+        BasicAI::audio->Stop(THEME);
+        BasicAI::audio->Play(DANGER);
     }
+
 }
 
 // -------------------------------------------------------------------------------
@@ -86,7 +90,7 @@ void Delay::Update()
 void Delay::Draw()
 {
     if (notPlayed)
-        logo->Draw(game->viewport.left + window->CenterX() , game->viewport.top + window->CenterY(), Layer::FRONT);
+        logo->Draw(game->viewport.left + window->CenterX() , game->viewport.top + window->CenterY(), Layer::FRONT, 0.8);
 }
 
 // -------------------------------------------------------------------------------

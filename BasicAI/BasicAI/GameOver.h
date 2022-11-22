@@ -22,10 +22,10 @@ private:
     Sprite* title = nullptr;       // tela de fim
 
 public:
-    void Init();                    // inicialização do nível
+    void Init();                    // inicialização do nú“el
     void Update();                  // lógica da tela de fim
     void Draw();                    // desenho da tela
-    void Finalize();                // finalização do nível
+    void Finalize();                // finalização do nú“el
 };
 
 // ------------------------------------------------------------------------------

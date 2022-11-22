@@ -171,8 +171,6 @@
     <ClCompile Include="BasicAI.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Green.cpp" />
-    <ClCompile Include="Home.cpp" />
-    <ClCompile Include="Home.h" />
     <ClCompile Include="Hud.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Magenta.cpp" />

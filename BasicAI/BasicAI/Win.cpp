@@ -12,7 +12,7 @@
 #include "Engine.h"
 #include "Win.h"
 #include "Etther.h"
-#include "Home.h"
+#include "BasicAI.h"
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ void Win::Init()
 void Win::Update()
 {
     if (window->KeyPress(VK_ESCAPE) || window->KeyPress(VK_RETURN))
-        Etther::NextLevel<Home>();
+        Etther::NextLevel<BasicAI>();
 }
 
 // ----------------------------------------------------------------------

@@ -26,7 +26,7 @@
 enum Ids 
 { 
     PLAYER, MISSILE, WALLHIT, BLUE, GREEN, MAGENTA, ORANGE, 
-    THEME, START, FIRE, EXPLODE, HITWALL, EXPLOSION, WALL, ORB
+    THEME, START, FIRE, EXPLODE, HITWALL, EXPLOSION, WALL, ORB, DANGER
 };
 
 // ------------------------------------------------------------------------------
@@ -43,12 +43,17 @@ public:
     static Audio * audio;           // sitema de áudio
     static Scene * scene;           // cena do jogo
 
+    Sprite* win;          // logotipo do jogo
+    Sprite* lose;          // logotipo do jogo
+
     static Image * blue;            // imagem do inimigo azul
     static Image * green;           // imagem do inimigo green
     static Image * magenta;         // imagem do inimigo magenta
     static Image * orange;          // imagem do inimigo orange
     
     static bool viewHUD;            // hud visú“el
+    static bool isGameOver;
+    static bool isWin;
 
     void Init();                    // inicialização
     void Update();                  // atualização

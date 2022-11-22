@@ -16,7 +16,6 @@
 #include "Delay.h"
 #include "Wall.h"
 #include "Orb.h"
-#include "Home.h"
 #include "GameOver.h"
 #include "Etther.h"
 #include "Win.h"
@@ -26,6 +25,8 @@ Player * BasicAI::player  = nullptr;
 Audio  * BasicAI::audio   = nullptr;
 Scene  * BasicAI::scene   = nullptr;
 bool     BasicAI::viewHUD = false;
+bool     BasicAI::isGameOver = false;
+bool     BasicAI::isWin = false;
 Image  * BasicAI::blue    = nullptr;
 Image  * BasicAI::green   = nullptr;
 Image  * BasicAI::magenta = nullptr;
@@ -37,8 +38,9 @@ void BasicAI::Init()
 {
     // cria sistema de áudio
     audio = new Audio();
-    audio->Add(START, "Resources/Start.wav");
+    audio->Add(START, "Resources/New/start.wav");
     audio->Add(THEME, "Resources/New/withoutfear.wav");
+    audio->Add(DANGER, "Resources/New/ongame.wav");
     audio->Add(FIRE, "Resources/Fire.wav", 2);
     audio->Add(HITWALL, "Resources/Hitwall.wav", 5);
     audio->Add(EXPLODE, "Resources/Explode.wav", 3);
@@ -56,6 +58,8 @@ void BasicAI::Init()
     audio->Volume(MAGENTA, 0.40f);
     audio->Volume(BLUE, 0.20f);
     audio->Volume(GREEN, 0.75f);
+
+    BasicAI::audio->Play(START);
 
     // carrega imagens das geometrias
     blue    = new Image("Resources/New/enemy_1.png");
@@ -328,9 +332,13 @@ void BasicAI::Init()
 
 void BasicAI::Update()
 {
+
+    
+
     // sai com o pressionamento da tecla ESC
     if (window->KeyDown(VK_ESCAPE))
         window->Close();
+
 
     // atualiza cena e calcula colisões
     scene->Update();
@@ -381,12 +389,12 @@ void BasicAI::Update()
         viewHUD = !viewHUD;
 
     // passa para tela de game over
-    if (window->KeyPress('N'))
-        Etther::NextLevel<GameOver>();
+    if (window->KeyPress('N') || player->life <= 0)
+        isGameOver = true;
 
     // passa para tela de vitoria
     if (window->KeyPress('M'))
-        Etther::NextLevel<Win>();
+        isWin= true;
 } 
 
 // ------------------------------------------------------------------------------

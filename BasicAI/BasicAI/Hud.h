@@ -35,12 +35,15 @@ private:
     uint fps;                           // valor para exibição do fps
 
 public:
-    static uint missiles;               // número de mísseis na tela
+    static uint missiles;               // número de múseis na tela
     static uint oranges;                // número de inimigos laranja
     static uint magentas;               // número de inimigos rosa
     static uint blues;                  // número de inimigos azul
     static uint greens;                 // número de inimigos verde
-    static uint particles;              // número de partículas ativas
+    static uint particles;              // número de partú€ulas ativas
+
+    Sprite* win;          // logotipo do jogo
+    Sprite* lose;          // logotipo do jogo
 
     Hud();                              // construtor
     ~Hud();                             // destrutor

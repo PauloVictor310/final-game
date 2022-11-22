@@ -11,6 +11,7 @@
 
 #include "Hud.h"
 #include "BasicAI.h"
+#include "iostream"
 
 // ------------------------------------------------------------------------------
 
@@ -26,14 +27,16 @@ uint Hud::particles = 0;
 
 Hud::Hud()
 {
+    win = new Sprite("Resources/New/levelwin.png");
+    lose = new Sprite("Resources/New/levellose.png");
     // cria fonte para exibição de texto
-    font = new Font("Resources/Tahoma14.png");
-    font->Spacing("Resources/Tahoma14.dat");
-    bold = new Font("Resources/Tahoma14b.png");
-    bold->Spacing("Resources/Tahoma14b.dat");
+    font = new Font("Resources/new/agency32.png");
+    font->Spacing(130);
+    bold = new Font("Resources/new/agency32.png");
+    bold->Spacing(130);
 
     // carrega sprites
-    infoBox = new Sprite("Resources/InfoBox.png");
+    infoBox = new Sprite("Resources/new/newInfobox.png");
 
     // inicializa contador de frames e tempo transcorrido
     frameCount = 0;
@@ -67,6 +70,15 @@ void Hud::Update()
         frameCount = 0;
         totalTime -= 1.0f;
     }
+
+    if (BasicAI::isGameOver) {
+        if (window->KeyPress(VK_RETURN)) {
+            // calcula posição para manter viewport centralizada
+            BasicAI::player->MoveTo(447, 2033);
+            BasicAI::player->life = 100;
+            BasicAI::isGameOver = false;
+        }
+    }
 }
 
 // -------------------------------------------------------------------------------
@@ -74,31 +86,26 @@ void Hud::Update()
 void Hud::Draw()
 {
     // desenha elementos da interface
-    infoBox->Draw(game->viewport.left + 140, game->viewport.top + 100, Layer::FRONT);
+    if (!BasicAI::isGameOver && !BasicAI::isWin) {
+        infoBox->Draw(game->viewport.right - 140, game->viewport.top, Layer::FRONT, 0.5);
 
-    // define cor do texto
-    Color textColor{ 0.7f, 0.7f, 0.7f, 1.0f };
+        // define cor do texto
+        Color textColor{ 1.0f, 1.0f, 1.0f, 1.0f };
 
-    // desenha texto
-    text.str("");
-    text << "Geometry Wars";
-    bold->Draw(40, 62, text.str(), textColor);
+        // desenha texto
+        text.str("");
+        text << BasicAI::player->life;
+        font->Draw(1500, 18, text.str(), textColor, 0.0f, 0.2f);
+    }
+    
 
-    text.str("");
-    text << "FPS: " << fps;
-    font->Draw(40, 92, text.str(), textColor);
+    if (BasicAI::isGameOver) {
+        lose->Draw(game->viewport.left + window->CenterX(), game->viewport.top + window->CenterY(), Layer::FRONT, 0.8);
+    }
 
-    text.str("");
-    text << "Partú€ulas: " << particles;
-    font->Draw(40, 112, text.str(), textColor);
-
-    text.str("");
-    text << "Inimigos: " << oranges + magentas + blues + greens;
-    font->Draw(40, 132, text.str(), textColor);
-
-    text.str("");
-    text << "Múseis: " << missiles;
-    font->Draw(40, 152, text.str(), textColor);
+    if (BasicAI::isWin) {
+        win->Draw(game->viewport.left + window->CenterX(), game->viewport.top + window->CenterY(), Layer::FRONT, 0.8);
+    }
 }
 
 // -------------------------------------------------------------------------------

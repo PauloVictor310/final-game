@@ -5,7 +5,7 @@
 // Atualização: 11 Nov 2021
 // Compilador:  Visual C++ 2019
 //
-// Descrição:   Define uma classe para um míssil
+// Descrição:   Define uma classe para um músil
 //
 **********************************************************************************/
 
@@ -57,10 +57,10 @@ Missile::~Missile()
 
 void Missile::Update()
 {
-    // move míssel com vetor resultante
+    // move músel com vetor resultante
     Translate(speed.XComponent() * 90.0f * gameTime, -speed.YComponent() * 90.0f * gameTime);
 
-    // remove míssil da cena se ele sair da área de jogo
+    // remove músil da cena se ele sair da área de jogo
     if (x > game->Width() - 50 || x < 50 || y > game->Height() - 50 || y < 50)
     {
         // volume do som de destruição depende da distância para o jogador
@@ -74,7 +74,7 @@ void Missile::Update()
         // adiciona explosão na cena
         BasicAI::scene->Add(new WallHit(x,y), STATIC);
 
-        // remove míssil da cena
+        // remove músil da cena
         BasicAI::scene->Delete();
     }
 }

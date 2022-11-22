@@ -29,10 +29,10 @@ float   & Game::gameTime = Engine::frameTime;    // tempo do último quadro
 
 Game::Game()
 {
-    // o tamanho do jogo é o tamanho da janela
+    // o tamanho do jogo Eo tamanho da janela
     Size(window->Width(), window->Height());
 
-    // a área visível é a mesma da janela
+    // a área visú“el Ea mesma da janela
     viewport = { 0, 0, window->Width(), window->Height() };
 }
 

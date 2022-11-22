@@ -11,7 +11,6 @@
 
 #include "Engine.h"
 #include "Etther.h"
-#include "Home.h"
 #include "BasicAI.h"
 //#include "GameOver.h"
 
@@ -32,7 +31,7 @@ void Etther::Init()
     //audio->Add(TRANSITION, "Resources/Transition.wav");
 
     // inicializa nú“el de abertura do jogo
-    level = new Home();
+    level = new BasicAI();
     level->Init();
 }
 

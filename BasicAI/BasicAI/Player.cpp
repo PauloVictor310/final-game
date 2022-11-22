@@ -101,6 +101,22 @@ void Player::OnCollision(Object* obj)
     if (obj->Type() == WALL)
         WallCollision(obj);
 
+    if (obj->Type() == BLUE) {
+        life--;
+    }
+
+    if (obj->Type() == GREEN) {
+        life--;
+    }
+
+    if (obj->Type() == MAGENTA) {
+        life--;
+    }
+
+    if (obj->Type() == ORANGE) {
+        life--;
+    }
+
    /*if (obj->Type() == BULLET)
         BulletCollision();*/
 }
