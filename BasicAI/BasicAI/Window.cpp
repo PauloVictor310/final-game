@@ -30,12 +30,12 @@ Window::Window()
     windowHandle    = 0;                                    // identificador da janela do jogo
     windowWidth     = GetSystemMetrics(SM_CXSCREEN);        // a janela ocupa toda a tela (tela cheia)
     windowHeight    = GetSystemMetrics(SM_CYSCREEN);        // a janela ocupa toda a tela (tela cheia)
-    windowIcon      = LoadIcon(NULL, IDI_APPLICATION);      // Ìcone padr„o de uma aplicaÁ„o
+    windowIcon      = LoadIcon(NULL, IDI_APPLICATION);      // ˙Äone padr„o de uma aplicaÁ„o
     windowCursor    = LoadCursor(NULL, IDC_ARROW);          // cursor padr„o de uma aplicaÁ„o
-    windowColor     = RGB(0,0,0);                           // cor de fundo padr„o È preta
-    windowTitle     = string("Windows Game");               // tÌtulo padr„o da janela
+    windowColor     = RGB(0,0,0);                           // cor de fundo padr„o ÅEpreta
+    windowTitle     = string("Windows Game");               // t˙ëulo padr„o da janela
     windowStyle     = WS_POPUP | WS_VISIBLE;                // estilo para tela cheia
-    windowMode      = FULLSCREEN;                           // modo padr„o È tela cheia
+    windowMode      = FULLSCREEN;                           // modo padr„o ÅEtela cheia
     windowPosX      = 0;                                    // posiÁ„o inicial da janela no eixo x
     windowPosY      = 0;                                    // posiÁ„o inicial da janela no eixo y
     windowCenterX   = windowWidth/2.0f;                     // centro da janela no eixo x
@@ -126,7 +126,7 @@ bool Window::Create()
     windowHandle = CreateWindowEx(
         NULL,                           // estilos extras
         "GameWindow",                   // nome da "window class"
-        windowTitle.c_str(),            // tÌtulo da janela
+        windowTitle.c_str(),            // t˙ëulo da janela
         windowStyle,                    // estilo da janela
         windowPosX, windowPosY,         // posiÁ„o (x,y) inicial
         windowWidth, windowHeight,      // largura e altura da janela
@@ -135,7 +135,7 @@ bool Window::Create()
         hInstance,                      // identificador da aplicaÁ„o
         NULL);                          // par‚metros de criaÁ„o
 
-    // Ao usar o modo em janela È preciso levar em conta que as barras 
+    // Ao usar o modo em janela ÅEpreciso levar em conta que as barras 
     // e bordas ocupam espaÁo na janela. O cÛdigo abaixo ajusta o tamanho
     // da janela de forma que a ·rea cliente do jogo fique no tamanho 
     // (windowWidth x windowHeight)

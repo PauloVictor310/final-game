@@ -48,7 +48,7 @@ public:
     static Image * magenta;         // imagem do inimigo magenta
     static Image * orange;          // imagem do inimigo orange
     
-    static bool viewHUD;            // hud visível
+    static bool viewHUD;            // hud visú“el
 
     void Init();                    // inicialização
     void Update();                  // atualização

@@ -51,7 +51,7 @@ void WaveO::Update()
             // toca som de nova onda
             BasicAI::audio->Play(ORANGE);
 
-            // origem da onda È aleatÛria
+            // origem da onda ÅEaleatÛria
             switch (position.Rand())
             {
             case 0:

@@ -21,7 +21,7 @@
 
 Delay::Delay()
 {
-    logo = new Sprite("Resources/Logo.png");
+    logo = new Sprite("Resources/New/levelhome.png");
     timer.Start();
 
     notPlayed = true;
@@ -42,7 +42,7 @@ Delay::~Delay()
 
 void Delay::Update()
 {
-    if (notPlayed && timer.Elapsed(2.0f))
+    if (notPlayed && window->KeyPress(VK_ESCAPE))
     {
         // toca áudio de introdução
         BasicAI::audio->Play(START);

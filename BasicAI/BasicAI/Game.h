@@ -39,7 +39,7 @@ protected:
     static float   & gameTime;                      // tempo do ˙ltimo quadro
 
 public:
-    ViewPort viewport;                              // ·rea visÌvel do jogo
+    ViewPort viewport;                              // ·rea vis˙ìel do jogo
     
     Game();                                         // construtor 
 
@@ -57,7 +57,7 @@ public:
     static float CenterX();                         // retorna o centro do jogo no eixo x
     static float CenterY();                         // retorna o centro do jogo no eixo y
 
-    // Estes mÈtodos s„o puramente virtuais, isto È, devem ser 
+    // Estes mÈtodos s„o puramente virtuais, isto ÅE devem ser 
     // implementados em todas as classes derivas de Game.
 
     virtual void Init() = 0;                        // inicializaÁ„o do jogo

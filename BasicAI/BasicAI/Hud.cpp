@@ -89,7 +89,7 @@ void Hud::Draw()
     font->Draw(40, 92, text.str(), textColor);
 
     text.str("");
-    text << "Partículas: " << particles;
+    text << "Partú€ulas: " << particles;
     font->Draw(40, 112, text.str(), textColor);
 
     text.str("");
@@ -97,7 +97,7 @@ void Hud::Draw()
     font->Draw(40, 132, text.str(), textColor);
 
     text.str("");
-    text << "Mísseis: " << missiles;
+    text << "Múseis: " << missiles;
     font->Draw(40, 152, text.str(), textColor);
 }
 
