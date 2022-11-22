@@ -42,9 +42,9 @@ void BasicAI::Init()
     audio->Add(THEME, "Resources/New/withoutfear.wav");
     audio->Add(DANGER, "Resources/New/ongame.wav");
     audio->Add(WIN, "Resources/win.wav");
-    audio->Add(FIRE, "Resources/Fire.wav", 2);
-    audio->Add(HITWALL, "Resources/Hitwall.wav", 5);
-    audio->Add(EXPLODE, "Resources/Explode.wav", 3);
+    audio->Add(FIRE, "Resources/New/laser-blaster.wav", 2);
+    audio->Add(HITWALL, "Resources/New/impact.wav", 5);
+    audio->Add(EXPLODE, "Resources/New/explosion.wav", 3);
     audio->Add(ORANGE, "Resources/Orange.wav", 1);
     audio->Add(MAGENTA, "Resources/Magenta.wav", 2);
     audio->Add(BLUE, "Resources/Blue.wav", 2);
@@ -381,7 +381,6 @@ void BasicAI::Update()
 
     if (isWin) {
         BasicAI::audio->Stop(DANGER);
-        //BasicAI::audio->Play(THEME, START);
     }
 
     // atualiza o painel de informações

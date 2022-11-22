@@ -37,7 +37,7 @@ Orange::Orange(float pX, float pY, float ang)
 
     // configuração do emissor de partú€ulas
     Generator emitter;
-    emitter.imgFile = "Resources/Spark.png";    // arquivo de imagem
+    emitter.imgFile = "Resources/New/particles/magic_4f.png";    // arquivo de imagem
     emitter.angle = speed.Angle() + 180;        // ângulo base do emissor
     emitter.spread = 5;                         // espalhamento em graus
     emitter.lifetime = 0.4f;                    // tempo de vida em segundos

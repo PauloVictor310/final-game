@@ -23,7 +23,7 @@ Explosion::Explosion(float pX, float pY)
 
     // configura emissor de partú€ulas
     Generator explosion;
-    explosion.imgFile   = "Resources/Explo.png";    // arquivo de imagem
+    explosion.imgFile   = "Resources/New/particles/scorch_f.png";    // arquivo de imagem
     explosion.angle     = 0.0f;                     // direção da explosão
     explosion.spread    = 360.0f;                   // espalhamento em graus
     explosion.lifetime  = 1.5f;                     // tempo de vida em segundos

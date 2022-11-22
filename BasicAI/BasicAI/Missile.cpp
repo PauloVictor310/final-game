@@ -68,8 +68,8 @@ void Missile::Update()
         const float BaseVolume = 0.8f;
         float distance = Point::Distance(Point(x, y), Point(player->X(), player->Y()));
         float level = (MaxDistance - distance) / MaxDistance;
-        BasicAI::audio->Volume(HITWALL, level * BaseVolume);
-        BasicAI::audio->Play(HITWALL);
+        BasicAI::audio->Volume(START, level * BaseVolume);
+        BasicAI::audio->Play(START);
 
         // adiciona explosão na cena
         BasicAI::scene->Add(new WallHit(x,y), STATIC);

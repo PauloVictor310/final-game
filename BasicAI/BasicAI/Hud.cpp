@@ -84,6 +84,10 @@ void Hud::Update()
             BasicAI::isGameOver = false;
         }
     }
+
+    if (BasicAI::isWin) {
+        BasicAI::scene->Remove(BasicAI::player, MOVING);
+    }
 }
 
 // -------------------------------------------------------------------------------
@@ -116,7 +120,7 @@ void Hud::Draw()
         lose->Draw(game->viewport.left + window->CenterX(), game->viewport.top + window->CenterY(), Layer::FRONT, 0.8);
         score.str("");
         score << BasicAI::player->score;
-        bold->Draw(game->viewport.left + window->CenterX(), game->viewport.left + window->CenterY(), score.str(), textColor, 0.0f, 0.6f);
+        bold->Draw(910, 330, score.str(), textColor, 0.0f, 0.6f);
     }
 
     if (BasicAI::isWin) {

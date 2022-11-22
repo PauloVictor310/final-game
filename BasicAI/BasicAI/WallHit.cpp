@@ -46,7 +46,7 @@ WallHit::WallHit(float pX, float pY)
     
     // configura emissor de partículas
     Generator explosion;
-    explosion.imgFile   = "Resources/Spark.png";    // arquivo de imagem
+    explosion.imgFile   = "Resources/New/particles/magic_4f.png";    // arquivo de imagem
     explosion.angle     = base;                     // direção da explosão
     explosion.spread    = 160.0f;                   // espalhamento em graus
     explosion.lifetime  = 1.0f;                     // tempo de vida em segundos

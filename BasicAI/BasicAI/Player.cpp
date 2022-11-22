@@ -38,7 +38,7 @@ Player::Player()
 
     MoveTo(447, 2033);
     type = PLAYER;
-    life = 1;
+    life = 600;
     totalLife = life;
     score = 0;
 
@@ -128,10 +128,11 @@ void Player::OnCollision(Object* obj)
     }
 
     if (obj->Type() == WALL)
-        //WallCollision(obj);
+        WallCollision(obj);
 
     if (obj->Type() == BLUE) {
         life--;
+        BasicAI::audio->Play(HITWALL);
         // gera 50 partú€ulas na posição do mouse
         //BasicAI::scene->Add(new Explosion(x, y), STATIC);
         // gera 50 partú€ulas na posição do mouse
@@ -143,6 +144,7 @@ void Player::OnCollision(Object* obj)
 
     if (obj->Type() == GREEN) {
         life--;
+        BasicAI::audio->Play(HITWALL);
         // gera 50 partú€ulas na posição do mouse
         //BasicAI::scene->Add(new Explosion(x, y), STATIC);
         // gera 50 partú€ulas na posição do mouse
@@ -153,6 +155,7 @@ void Player::OnCollision(Object* obj)
 
     if (obj->Type() == MAGENTA) {
         life--;
+        BasicAI::audio->Play(HITWALL);
         // gera 50 partú€ulas na posição do mouse
         //damage->Generate(x, y, 50);
         //damage->Update(gameTime);
@@ -162,6 +165,7 @@ void Player::OnCollision(Object* obj)
 
     if (obj->Type() == ORANGE) {
         life--;
+        BasicAI::audio->Play(HITWALL);
         // gera 50 partú€ulas na posição do mouse
         //damage->Generate(x, y, 50);
         //damage->Update(gameTime);
@@ -177,17 +181,21 @@ void Player::WallCollision(Object* obj) {
 
     if (wall->color == PBLUE && currColor == PRED) {
         speed.Scale(-5.0f);
+        BasicAI::audio->Play(HITWALL);
     }
     if (wall->color == PRED && currColor == PBLUE) {
         speed.Scale(-5.0f);
+        BasicAI::audio->Play(HITWALL);
     }
 
 
     if (wall->color == PYELLOW && currColor == PRED) {
         speed.Scale(-5.0f);
+        BasicAI::audio->Play(HITWALL);
     }
     if (wall->color == PYELLOW && currColor == PBLUE) {
         speed.Scale(-5.0f);
+        BasicAI::audio->Play(HITWALL);
     }
 }
 
