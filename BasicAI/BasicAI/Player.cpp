@@ -37,23 +37,24 @@ Player::Player()
 
     MoveTo(447, 2033);
     type = PLAYER;
+    life = 100;
 
-    // configuração do emissor de partículas
+    // configuração do emissor de partú€ulas
     Generator emitter;
     emitter.imgFile = "Resources/New/particle.png";    // arquivo de imagem
     emitter.angle = 270.0f;                     // ângulo base do emissor
     emitter.spread = 25;                        // espalhamento em graus
     emitter.lifetime = 0.3f;                    // tempo de vida em segundos
-    emitter.frequency = 0.010f;                 // tempo entre geração de novas partículas
+    emitter.frequency = 0.010f;                 // tempo entre geração de novas partú€ulas
     emitter.percentToDim = 0.6f;                // desaparece após 60% da vida
-    emitter.minSpeed = 50.0f;                   // velocidade mínima das partículas
-    emitter.maxSpeed = 100.0f;                  // velocidade máxima das partículas
-    emitter.color.r = 1.0f;                     // componente Red da partícula 
-    emitter.color.g = 1.0f;                     // componente Green da partícula 
-    emitter.color.b = 1.0f;                     // componente Blue da partícula 
-    emitter.color.a = 1.0f;                     // transparência da partícula
+    emitter.minSpeed = 50.0f;                   // velocidade mú‹ima das partú€ulas
+    emitter.maxSpeed = 100.0f;                  // velocidade máxima das partú€ulas
+    emitter.color.r = 1.0f;                     // componente Red da partú€ula 
+    emitter.color.g = 1.0f;                     // componente Green da partú€ula 
+    emitter.color.b = 1.0f;                     // componente Blue da partú€ula 
+    emitter.color.a = 1.0f;                     // transparência da partú€ula
 
-    // cria sistema de partículas
+    // cria sistema de partú€ulas
     tail = new Particles(emitter);
     tailCount = 0;
 
@@ -126,10 +127,10 @@ void Player::WallCollision(Object* obj) {
 
 bool Player::KeysTimed(bool pressed, float time)
 {
-    // se já passou o tempo para o próximo disparo
+    // se jEpassou o tempo para o próximo disparo
     if (keysCtrl)
     {
-        // se há qualquer seta pressionada
+        // se hEqualquer seta pressionada
         if (pressed)
         {
             keysCtrl = false;
@@ -151,13 +152,13 @@ bool Player::KeysTimed(bool pressed, float time)
 
 bool Player::AxisTimed(int axisX, int axisY, float time)
 {
-    // se já passou o tempo para o próximo disparo
+    // se jEpassou o tempo para o próximo disparo
     if (axisCtrl)
     {
-        // a magnitude é a distância do eixo para o seu centro
+        // a magnitude Ea distância do eixo para o seu centro
         float magnitude = Point::Distance(Point(0, 0), Point(float(gamepad->Axis(axisX)), float(gamepad->Axis(axisY))));
 
-        // se há qualquer movimento no eixo
+        // se hEqualquer movimento no eixo
         if (magnitude > 0)
         {
             axisCtrl = false;
@@ -228,7 +229,7 @@ void Player::Update()
             Move(Vector(ang, mag * gameTime));
         }
 
-        // dispara míssil com o analógico direito
+        // dispara músil com o analógico direito
         if (AxisTimed(AxisRX, AxisRY, 0.150f))
         {
             float ang = Line::Angle(Point(0,0), Point(float(gamepad->Axis(AxisRX)), float(gamepad->Axis(AxisRY))));
@@ -261,7 +262,7 @@ void Player::Update()
         else if (window->KeyDown('S'))
             Move(Vector(270.0f, accel));
         else
-            // se nenhuma tecla está pressionada comece a frear
+            // se nenhuma tecla estEpressionada comece a frear
             if (speed.Magnitude() > 0.1f)
                 Move(Vector(speed.Angle() + 180.0f, 5.0f * gameTime));
             else
@@ -306,7 +307,7 @@ void Player::Update()
             keysPressed = false;
         }
 
-        // dispara míssil
+        // dispara músil
         if (KeysTimed(keysPressed, 0.150f))
         {
             BasicAI::audio->Play(FIRE);

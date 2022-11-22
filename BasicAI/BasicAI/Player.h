@@ -17,7 +17,7 @@
 #include "Object.h"                     // objetos do jogo
 #include "Sprite.h"                     // desenho de sprites
 #include "Vector.h"                     // representação de vetores
-#include "Particles.h"                  // sistema de partículas
+#include "Particles.h"                  // sistema de partú€ulas
 #include "Controller.h"                 // entrada pelo controle
 #include "Timer.h"                      // controle do tempo
 #include "Types.h"
@@ -32,21 +32,22 @@ private:
     Sprite * spriteR;                    // sprite do player vermelho
     Sprite * spriteB;                     // sprite do player azul
     Particles * tail;                   // calda do jogador
-    uint tailCount;                     // quantidade de partículas da calda
+    uint tailCount;                     // quantidade de partú€ulas da calda
     
     Controller * gamepad;               // leitura do controle
-    bool gamepadOn;                     // controle está ligado
+    bool gamepadOn;                     // controle estEligado
     
     Timer timer;                        // controla tempo dos disparos
-    llong start;                        // marcação de início do disparo
+    llong start;                        // marcação de inú€io do disparo
     bool axisCtrl;                      // habilita leitura de disparos
     bool keysCtrl;                      // habilita disparos pelas setas
     bool keysPressed;                   // qualquer seta pressionada
     float firingAngle;                  // direção dos disparos
 
 public:
-    static Image * missile;             // imagem do míssil
+    static Image * missile;             // imagem do músil
     Vector speed;                       // velocidade e direção de movimento
+    int life;
 
     uint currColor;                     // cor atual do jogador
 
