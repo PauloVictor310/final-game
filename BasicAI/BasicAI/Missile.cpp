@@ -33,7 +33,7 @@ Missile::Missile(float angle)
     speed.ScaleTo(15.0f);
     
     // move para posição
-    MoveTo(player->X() + 40 * cos(speed.Radians()), player->Y() - 40 * sin(speed.Radians()));
+    MoveTo(player->X() + 65 * cos(speed.Radians()), player->Y() - 65 * sin(speed.Radians()));
     RotateTo(-speed.Angle() + 90.0f);
 
     // define tipo

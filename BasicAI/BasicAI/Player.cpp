@@ -269,37 +269,9 @@ void Player::Update()
                 speed.ScaleTo(0.0f);
 
         // controla direção dos disparos
-        if (window->KeyDown(VK_RIGHT) && window->KeyDown(VK_UP)) {
+        if (window->KeyDown(VK_SPACE)) {
             keysPressed = true;
-            firingAngle = 45.0f;
-        } 
-        else if (window->KeyDown(VK_LEFT) && window->KeyDown(VK_UP)) {
-            keysPressed = true;
-            firingAngle = 135.0f;
-        }
-        else if (window->KeyDown(VK_LEFT) && window->KeyDown(VK_DOWN)) {
-            keysPressed = true;
-            firingAngle = 225.0f;
-        }
-        else if (window->KeyDown(VK_RIGHT) && window->KeyDown(VK_DOWN)) {
-            keysPressed = true;
-            firingAngle = 315.0f;
-        }
-        else if (window->KeyDown(VK_RIGHT)) {
-            keysPressed = true;
-            firingAngle = 0.0f;
-        }
-        else if (window->KeyDown(VK_LEFT)) {
-            keysPressed = true;
-            firingAngle = 180.0f;
-        }
-        else if (window->KeyDown(VK_UP)) {
-            keysPressed = true;
-            firingAngle = 90.0f;
-        }
-        else if (window->KeyDown(VK_DOWN)) {
-            keysPressed = true;
-            firingAngle = 270.0f;
+            firingAngle = speed.Angle();
         }
         else
         {
