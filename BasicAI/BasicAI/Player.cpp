@@ -38,7 +38,9 @@ Player::Player()
 
     MoveTo(447, 2033);
     type = PLAYER;
-    life = 100;
+    life = 1;
+    totalLife = life;
+    score = 0;
 
     // configuração do emissor de partú€ulas
     Generator emitter;
@@ -64,22 +66,22 @@ Player::Player()
     currColor = PBLUE;
 
 
-    // configura gerador de partículas
+    // configura gerador de partú€ulas
     Generator starmaker;
     starmaker.imgFile = "Resources/New/Particle.png";   // arquivo de imagem
     starmaker.angle = 0;            // direção das estrelas
     starmaker.spread = 360.0f;                  // espalhamento em graus
     starmaker.lifetime = 0.65f;                  // tempo de vida (em segundos)
-    starmaker.frequency = 0.010f;               // tempo entre geração de novas partículas
+    starmaker.frequency = 0.000f;               // tempo entre geração de novas partú€ulas
     starmaker.percentToDim = 0.9f;              // desaparece após 60% da vida
-    starmaker.minSpeed = 50.0f;                 // velocidade mínima das partículas
-    starmaker.maxSpeed = 250.0f;                // velocidade máxima das partículas
-    starmaker.color.r = 1.980f;          // cor aleatória para partícula
-    starmaker.color.g = 1.800f;          // cor aleatória para partícula
-    starmaker.color.b = 1.0f;          // cor aleatória para partícula
-    starmaker.color.a = 1.0f;                   // transparência da partícula
+    starmaker.minSpeed = 20.0f;                 // velocidade mú‹ima das partú€ulas
+    starmaker.maxSpeed = 50.0f;                // velocidade máxima das partú€ulas
+    starmaker.color.r = 0.980f;          // cor aleatória para partú€ula
+    starmaker.color.g = 0.800f;          // cor aleatória para partú€ula
+    starmaker.color.b = 0.0f;          // cor aleatória para partú€ula
+    starmaker.color.a = 1.0f;                   // transparência da partú€ula
 
-    // cria sistema de partículas
+    // cria sistema de partú€ulas
     damage = new Particles(starmaker);
 
     
@@ -118,50 +120,51 @@ void Player::OnCollision(Object* obj)
             currColor = PRED;
         }
         else if (o->color == PYELLOW) {
-            //nextLevel = LEVELWIN;
+            BasicAI::scene->Delete(obj, STATIC);
+            BasicAI::isWin = true;
+            //BasicAI::audio->Play(WIN);
+            
         }
     }
 
     if (obj->Type() == WALL)
-        WallCollision(obj);
+        //WallCollision(obj);
 
     if (obj->Type() == BLUE) {
         life--;
-        // gera 50 partículas na posição do mouse
+        // gera 50 partú€ulas na posição do mouse
         //BasicAI::scene->Add(new Explosion(x, y), STATIC);
-        damage->Generate(x, y, 50);
-        damage->Update(gameTime);
+        // gera 50 partú€ulas na posição do mouse
+        //damage->Generate(x, y, 50);
+        //damage->Update(gameTime);
 
 
     }
 
     if (obj->Type() == GREEN) {
         life--;
-        // gera 50 partículas na posição do mouse
+        // gera 50 partú€ulas na posição do mouse
         //BasicAI::scene->Add(new Explosion(x, y), STATIC);
-        damage->Generate(x, y, 50);
-        damage->Update(gameTime);
-
+        // gera 50 partú€ulas na posição do mouse
+        //damage->Generate(x, y, 50);
+        //damage->Update(gameTime);
 
     }
 
     if (obj->Type() == MAGENTA) {
         life--;
-        // gera 50 partículas na posição do mouse
-        damage->Generate(x, y, 50);
-        damage->Update(gameTime);
+        // gera 50 partú€ulas na posição do mouse
+        //damage->Generate(x, y, 50);
+        //damage->Update(gameTime);
 
 
     }
 
     if (obj->Type() == ORANGE) {
         life--;
-        // gera 50 partículas na posição do mouse
-        damage->Generate(x, y, 50);
-     
-        damage->Update(gameTime);
-
-
+        // gera 50 partú€ulas na posição do mouse
+        //damage->Generate(x, y, 50);
+        //damage->Update(gameTime);
     }
 
    /*if (obj->Type() == BULLET)

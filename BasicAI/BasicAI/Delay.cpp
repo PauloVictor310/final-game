@@ -80,7 +80,7 @@ void Delay::Update()
         BasicAI::scene->Delete();
         fase4 = true;
         BasicAI::audio->Stop(THEME);
-        BasicAI::audio->Play(DANGER);
+        BasicAI::audio->Play(DANGER, true);
     }
 
 }

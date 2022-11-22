@@ -30,6 +30,7 @@ private:
     Sprite * infoBox = nullptr;         // área de informações do jogo
 
     stringstream text;                  // texto temporário
+    stringstream score;                  // texto temporário
     uint frameCount;                    // contador de quadros por segundo
     float totalTime;                    // tempo total transcorrido 
     uint fps;                           // valor para exibição do fps

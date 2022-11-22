@@ -53,6 +53,7 @@ void Green::OnCollision(Object * obj)
 {
     if (obj->Type() == MISSILE)
     {
+        BasicAI::player->score+=13;
         BasicAI::scene->Delete(obj, STATIC);
         BasicAI::scene->Delete(this, MOVING);
         BasicAI::scene->Add(new Explosion(x, y), STATIC);

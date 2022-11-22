@@ -32,7 +32,7 @@ private:
     Sprite * spriteR;                    // sprite do player vermelho
     Sprite * spriteB;                     // sprite do player azul
     Particles * tail;                   // calda do jogador
-    Particles * damage;            // sistema de partículas
+    Particles * damage;            // sistema de partú€ulas
     uint tailCount;                     // quantidade de partú€ulas da calda
     
     Controller * gamepad;               // leitura do controle
@@ -48,7 +48,9 @@ private:
 public:
     static Image * missile;             // imagem do músil
     Vector speed;                       // velocidade e direção de movimento
+    int totalLife;
     int life;
+    int score;
 
     uint currColor;                     // cor atual do jogador
 
