@@ -54,12 +54,34 @@ Player::Player()
     emitter.color.b = 1.0f;                     // componente Blue da partú€ula 
     emitter.color.a = 1.0f;                     // transparência da partú€ula
 
+
+
     // cria sistema de partú€ulas
     tail = new Particles(emitter);
     tailCount = 0;
 
     currColor = PBLUE;
 
+
+    // configura gerador de partículas
+    Generator starmaker;
+    starmaker.imgFile = "Resources/New/Particle.png";   // arquivo de imagem
+    starmaker.angle = 0;            // direção das estrelas
+    starmaker.spread = 360.0f;                  // espalhamento em graus
+    starmaker.lifetime = 0.65f;                  // tempo de vida (em segundos)
+    starmaker.frequency = 0.010f;               // tempo entre geração de novas partículas
+    starmaker.percentToDim = 0.9f;              // desaparece após 60% da vida
+    starmaker.minSpeed = 50.0f;                 // velocidade mínima das partículas
+    starmaker.maxSpeed = 250.0f;                // velocidade máxima das partículas
+    starmaker.color.r = 1.980f;          // cor aleatória para partícula
+    starmaker.color.g = 1.800f;          // cor aleatória para partícula
+    starmaker.color.b = 1.0f;          // cor aleatória para partícula
+    starmaker.color.a = 1.0f;                   // transparência da partícula
+
+    // cria sistema de partículas
+    damage = new Particles(starmaker);
+
+    
     // diparo habilitado
     firingAngle = 0.0f;
     keysPressed = false;
@@ -77,6 +99,7 @@ Player::~Player()
     delete spriteB;
     delete missile;
     delete tail;
+    delete damage;
     delete gamepad;
 }
 
@@ -103,18 +126,38 @@ void Player::OnCollision(Object* obj)
 
     if (obj->Type() == BLUE) {
         life--;
+        // gera 50 partículas na posição do mouse
+        damage->Generate(x, y, 50);
+        damage->Update(gameTime);
+
+
     }
 
     if (obj->Type() == GREEN) {
         life--;
+        // gera 50 partículas na posição do mouse
+        damage->Generate(x, y, 50);
+        damage->Update(gameTime);
+
+
     }
 
     if (obj->Type() == MAGENTA) {
         life--;
+        // gera 50 partículas na posição do mouse
+        damage->Generate(x, y, 50);
+        damage->Update(gameTime);
+
+
     }
 
     if (obj->Type() == ORANGE) {
         life--;
+        // gera 50 partículas na posição do mouse
+        damage->Generate(x, y, 50);
+        damage->Update(gameTime);
+
+
     }
 
    /*if (obj->Type() == BULLET)
@@ -310,6 +353,7 @@ void Player::Update()
     tail->Config().angle = speed.Angle() + 180;
     tail->Generate(x - 10 * cos(speed.Radians()), y + 10 * sin(speed.Radians()));
     tail->Update(gameTime);
+    damage->Update(gameTime);
     
     Hud::particles -= tailCount;
     tailCount = tail->Size();

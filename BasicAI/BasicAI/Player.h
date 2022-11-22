@@ -32,6 +32,7 @@ private:
     Sprite * spriteR;                    // sprite do player vermelho
     Sprite * spriteB;                     // sprite do player azul
     Particles * tail;                   // calda do jogador
+    Particles * damage;            // sistema de partículas
     uint tailCount;                     // quantidade de partú€ulas da calda
     
     Controller * gamepad;               // leitura do controle
