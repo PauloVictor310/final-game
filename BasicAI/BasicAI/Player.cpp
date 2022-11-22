@@ -15,6 +15,7 @@
 #include "Hud.h"
 #include "Orb.h"
 #include "Wall.h"
+#include "Explosion.h"
 
 Image * Player::missile = nullptr;  
 
@@ -127,6 +128,7 @@ void Player::OnCollision(Object* obj)
     if (obj->Type() == BLUE) {
         life--;
         // gera 50 partículas na posição do mouse
+        //BasicAI::scene->Add(new Explosion(x, y), STATIC);
         damage->Generate(x, y, 50);
         damage->Update(gameTime);
 
@@ -136,6 +138,7 @@ void Player::OnCollision(Object* obj)
     if (obj->Type() == GREEN) {
         life--;
         // gera 50 partículas na posição do mouse
+        //BasicAI::scene->Add(new Explosion(x, y), STATIC);
         damage->Generate(x, y, 50);
         damage->Update(gameTime);
 
@@ -155,6 +158,7 @@ void Player::OnCollision(Object* obj)
         life--;
         // gera 50 partículas na posição do mouse
         damage->Generate(x, y, 50);
+     
         damage->Update(gameTime);
 
 
@@ -382,6 +386,8 @@ void Player::Draw()
     }
 
     tail->Draw(Layer::LOWER, 1.0f);
+
+    damage->Draw(Layer::MIDDLE, 1.0f);
 }
 
 // -------------------------------------------------------------------------------
