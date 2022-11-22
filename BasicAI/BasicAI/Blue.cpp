@@ -19,11 +19,13 @@
 
 Blue::Blue(float pX, float pY, Player* p)
 {
+    // enemy_1
     player = p;
     sprite = new Sprite(BasicAI::blue);
-    BBox(new Circle(20.0f));
+    BBox(new Circle(30.0f));
     speed.RotateTo(0.0f);
     speed.ScaleTo(0.0f);
+    Scale(0.6f);
     MoveTo(pX, pY);
     factor = -0.25f;
     type = BLUE;

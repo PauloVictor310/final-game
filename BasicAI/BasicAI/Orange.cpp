@@ -18,13 +18,17 @@
 
 Orange::Orange(float pX, float pY, float ang)
 {
+    // enemy_4
+
     sprite = new Sprite(BasicAI::orange);
 
     // ajusta o vetor velocidade
     speed.RotateTo(ang);
     speed.ScaleTo(400);
     RotateTo(-speed.Angle());
-    BBox(new Circle(20.0f));
+    BBox(new Rect(-45, -55, 45, 55));
+    Rotate(90.0f);
+    Scale(0.6f);
     MoveTo(pX, pY);
     type = ORANGE;
 

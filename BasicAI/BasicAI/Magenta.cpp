@@ -19,10 +19,12 @@
 
 Magenta::Magenta(float pX, float pY, Player * p)
 {
+    // enemy_3
+
     player = p;
     sprite = new Sprite(BasicAI::magenta);
-    BBox(new Circle(18.0f));
-    
+    BBox(new Circle(30.0f));
+    Scale(0.6f);
     speed.RotateTo(0);
     speed.ScaleTo(2.0f);
     

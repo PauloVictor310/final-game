@@ -55,10 +55,10 @@ void BasicAI::Init()
     audio->Volume(GREEN, 0.75f);
 
     // carrega imagens das geometrias
-    blue    = new Image("Resources/Blue.png");
-    green   = new Image("Resources/Green.png");
-    magenta = new Image("Resources/Magenta.png");
-    orange  = new Image("Resources/Orange.png");
+    blue    = new Image("Resources/New/enemy_1.png");
+    green   = new Image("Resources/New/enemy_2.png");
+    magenta = new Image("Resources/New/enemy_3.png");
+    orange  = new Image("Resources/New/enemy_4.png");
 
     // carrega/incializa objetos
     backg   = new Background("Resources/New/state1.png");
